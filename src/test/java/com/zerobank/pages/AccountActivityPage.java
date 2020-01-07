@@ -1,6 +1,7 @@
 package com.zerobank.pages;
 
 import com.zerobank.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -69,5 +70,9 @@ public class AccountActivityPage {
     public boolean isSelected(String accountType){
         Select select = new Select(accountDropDown);
         return select.getFirstSelectedOption().getText().equals(accountType);
+    }
+
+    public List<WebElement> getDates(){
+        return  Driver.get().findElements(By.cssSelector("[id^='filtered'] tbody td:nth-of-type(1)"));
     }
 }

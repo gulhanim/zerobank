@@ -46,6 +46,10 @@ public class BrowserUtils {
         }
     }
 
+    public static void waitForStaleness(WebElement element, int seconds) {
+       new WebDriverWait(Driver.get(), seconds).until(ExpectedConditions.stalenessOf(element));
+    }
+
     public static void waitForStaleElement(WebElement element) {
         int y = 0;
         while (y <= 15) {
